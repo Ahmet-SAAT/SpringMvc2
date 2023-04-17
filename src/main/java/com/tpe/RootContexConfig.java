@@ -14,7 +14,8 @@ import java.sql.DriverManager;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath:db.proporties")
+@PropertySource("classpath:db.properties")//proporty kaynagimin nerede oldugunu bildirdim.
+//onceden hibernate.cfg.xml ile yapiyorduk.Artik java kodlari ile yapiyoruz
 public class RootContexConfig {
     @Autowired
     private Environment environment;
@@ -37,7 +38,6 @@ public class RootContexConfig {
         properties.put("hibernate.hbm2ddl.auto",environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         return properties;
     }
-
 
 
 

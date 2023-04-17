@@ -2,7 +2,7 @@ package com.tpe;
 
 
 // web.xml yerine bu clasi kullanacagiz.Configurasyon ayarlarimizi yapacagiz
-//dispatcher servletin(front controller) tanimlanmasi,konfigurasyonun tanimlanmasi
+//dispatcher servletin(front controller) tanimlanmasi,configurasyonun tanimlanmasi
 
 //bu classi extend ettigimizde dispatcher servletin baslar ve config ayarlarin bulundugu dosyanin yerini gosterir
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -17,7 +17,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     //Root Web AppContext->Service,Repository
 
 
-    @Override//Dbye erisim icin gerekli  config classi belirtecegiz
+    @Override//Dbye erisim (hibernate/jdbc) icin gerekli  config classi belirtecegiz
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{
                 RootContexConfig.class
