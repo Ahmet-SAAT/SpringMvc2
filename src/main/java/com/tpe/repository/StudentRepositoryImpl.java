@@ -27,21 +27,50 @@ import java.util.Optional;
 
        tx.commit();
        session.close();
-      // sessionFactory.close();//ben dedil spring kapatacak.O olusturdu cunku
+      // sessionFactory.close();//ben degil spring kapatacak.O olusturdu cunku
     }
 
     @Override
     public List<Student> findAll() {
-        return null;
+       Session session =sessionFactory.openSession();
+       Transaction tx =session.beginTransaction();
+
+       List<Student> studentList=session.createQuery("from Student",Student.class).getResultList();
+
+       tx.commit();
+       session.close();
+
+        return studentList;
     }
 
     @Override
     public Optional<Student> findById(Long id) {
-        return Optional.empty();
+
+       Session session =sessionFactory.openSession();
+       Transaction tx =session.beginTransaction();
+
+      Student student=session.get(Student.class,id);
+       //student objesi var ise dondur yoksa ici bos optional objesi dondur.Exception verme
+      Optional<Student> optional=Optional.ofNullable(student);
+
+       tx.commit();
+       session.close();
+
+       return optional;
     }
 
     @Override
     public void delete(Long id) {
+
+        Session session =sessionFactory.openSession();
+        Transaction tx =session.beginTransaction();
+
+        Student student=session.load(Student.class,id);//silme icin get degil load getirdim proxy obje verecek
+        session.delete(student);
+
+        tx.commit();
+        session.close();
+
 
     }
 }

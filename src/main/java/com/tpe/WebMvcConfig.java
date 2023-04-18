@@ -26,6 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer {//static sorgular icin ww
 
     //css,image gibi statik olan kaynakların dispatchera gönderilmesine gerek yoktu,web service yeterliydi
     //exp  : http://localhost:8080/SpringMvc2/resources/css/edu.jpeg
+    //hic dispatcher servlete gitmedik methodlarla ugrasmadik
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").//bu pathdeki kaynakları statik olarak algila

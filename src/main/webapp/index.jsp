@@ -14,7 +14,7 @@
 <body>
 <div class="container">
 <h2>STUDENT MANAGEMENT SYSTEM</h2>
-<p><a class="normal" href="${pageContext.request.contextPath}/students/">List Student</a></p>
+<p><a class="normal" href="${pageContext.request.contextPath}/students">List Student</a></p>
 <p><a class="normal" href="${pageContext.request.contextPath}/students/new">Add Student</a></p>
 </div>
 </body>
